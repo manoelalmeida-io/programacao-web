@@ -25,7 +25,7 @@ public class CandidatoController {
 
   @PostMapping("votar/{idCandidato}")
   public ResponseEntity votar(@PathVariable("idCandidato") Integer id) {
-    if (repository.countByValidoIsTrue() <= 0) {
+    if (!(repository.countByValidoIsTrue() > 0)) {
       return ResponseEntity.notFound().build();
     }
 
